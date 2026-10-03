@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>RILL SHOP ID</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+font-family:Arial,sans-serif;
+background:#050505;
+color:#fff;
+overflow-x:hidden
+}
+body:before{
+content:"";
+position:fixed;
+inset:-40%;
+background:conic-gradient(#ff0055,#7b00ff,#00eaff,#00ff88,#ff0055);
+filter:blur(100px);
+opacity:.12;
+animation:rgb 10s linear infinite;
+z-index:-1
+}
+@keyframes rgb{to{transform:rotate(360deg)}}
+.container{width:92%;max-width:1100px;margin:auto}
+nav{
+position:sticky;
+top:0;
+z-index:10;
+background:rgba(5,5,5,.85);
+backdrop-filter:blur(15px);
+border-bottom:1px solid #252525
+}
+.nav{
+height:65px;
+display:flex;
+align-items:center;
+justify-content:space-between
+}
+.logo{
+font-size:21px;
+font-weight:900
+}
+.logo span,.gradient{
+background:linear-gradient(90deg,#ff0055,#8b00ff,#00eaff,#00ff88,#ff0055);
+background-size:300%;
+-webkit-background-clip:text;
+color:transparent;
+animation:gradient 4s linear infinite
+}
+@keyframes gradient{to{background-position:300%}}
+.nav a{
+color:#aaa;
+text-decoration:none;
+margin-left:18px;
+font-size:13px
+}
+.hero{
+text-align:center;
+padding:90px 0 70px
+}
+.badge{
+display:inline-block;
+padding:8px 14px;
+border:1px solid #333;
+border-radius:50px;
+font-size:12px;
+color:#bbb;
+margin-bottom:20px
+}
+h1{
+font-size:clamp(45px,9vw,80px);
+letter-spacing:-4px
+}
+.hero p{
+max-width:650px;
+margin:22px auto;
+color:#999;
+line-height:1.7
+}
+.btn{
+display:inline-block;
+padding:13px 22px;
+border:1px solid #333;
+border-radius:12px;
+background:#111;
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+transition:.2s
+}
+.btn:hover{
+border-color:#00eaff;
+box-shadow:0 0 25px #00eaff33;
+transform:translateY(-2px)
+}
+section{padding:35px 0 65px}
+.title{
+margin-bottom:22px
+}
+.title h2{font-size:28px}
+.title p{
+color:#888;
+font-size:13px;
+margin-top:5px
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:16px
+}
+.card{
+background:linear-gradient(145deg,#111118,#08080b);
+border:1px solid #24242c;
+border-radius:18px;
+padding:22px;
+transition:.25s;
+position:relative;
+overflow:hidden
+}
+.card:hover{
+transform:translateY(-5px);
+border-color:#444;
+box-shadow:0 10px 35px #000
+}
+.card h3{
+font-size:18px;
+margin-bottom:8px
+}
+.icon{
+font-size:30px;
+margin-bottom:14px
+}
+.desc{
+font-size:13px;
+color:#999;
+line-height:1.6;
+margin-bottom:15px
+}
+.price{
+font-size:18px;
+font-weight:bold;
+margin:10px 0
+}
+.price small{
+display:block;
+font-size:11px;
+color:#777;
+font-weight:normal;
+margin-top:4px
+}
+.list{
+list-style:none;
+margin:12px 0
+}
+.list li{
+font-size:13px;
+color:#ccc;
+padding:7px 0;
+border-bottom:1px solid #1d1d22
+}
+.note{
+background:#171017;
+border-left:2px solid #ff00a8;
+padding:10px;
+margin:12px 0;
+font-size:12px;
+color:#ccc
+}
+.full{grid-column:1/-1}
+.fee{
+width:100%;
+border-collapse:collapse
+}
+.fee td{
+padding:9px 3px;
+border-bottom:1px solid #222;
+font-size:13px;
+color:#ccc
+}
+.fee td:last-child{
+text-align:right;
+font-weight:bold;
+color:#fff
+}
+.cta{
+text-align:center;
+padding:50px 20px;
+border:1px solid #292929;
+border-radius:20px;
+background:#0d0d10;
+margin-bottom:60px
+}
+.cta p{
+color:#888;
+margin:10px 0 20px
+}
+footer{
+border-top:1px solid #222;
+padding:25px;
+text-align:center;
+color:#666;
+font-size:12px
+}
+@media(max-width:800px){
+.grid{grid-template-columns:repeat(2,1fr)}
+.nav a{display:none}
+}
+@media(max-width:550px){
+.grid{grid-template-columns:1fr}
+.hero{padding-top:65px}
+h1{letter-spacing:-2px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="container nav">
+<div class="logo">RILL <span>SHOP ID</span></div>
+<div>
+<a href="#produk">Produk</a>
+<a href="#joki">Joki</a>
+<a href="#jasa">Jasa</a>
+</div>
+</div>
+</nav>
+
+<header class="hero container">
+<div class="badge">⚡ PREMIUM ROBLOX STORE</div>
+
+<h1>RILL <span class="gradient">SHOP ID</span></h1>
+
+<p>
+Tempat jual produk premium, script, bot notification,
+jasa joki dan berbagai layanan Roblox.
+</p>
+
+<a class="btn" href="#produk">LIHAT PRODUK ↓</a>
+</header>
+
+<main class="container">
+
+<!-- PRODUK -->
+<section id="produk">
+<div class="title">
+<h2>💎 PRODUK</h2>
+<p>Produk premium RILL SHOP ID</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🥚</div>
+<h3>Akun Steal an Egg</h3>
+<p class="desc">
+Detail akun dan harga dapat diatur oleh admin.
+</p>
+<div class="price">COMING SOON</div>
+</div>
+
+<div class="card">
+<div class="icon">💻</div>
+<h3>Script Premium</h3>
+
+<div class="price">
+Nasi Rendang — Rp120K
+<small>Permanent</small>
+</div>
+
+<div class="note">
+REKOMENDASI BUAT YANG GAK PAKE BANYAK HWID
+</div>
+
+<div class="price">
+Sena — Rp40K
+<small>1 Bulan</small>
+</div>
+
+<div class="note">
+REKOMENDASI BUAT PENJOKI ATAU BUTUH BANYAK HWID
+</div>
+</div>
+
+<div class="card">
+<div class="icon">🤖</div>
+<h3>Bot Notification Egg — Steal an Egg</h3>
+<p class="desc">
+Notifikasi egg untuk Steal an Egg.
+</p>
+
+<div class="price">
+Rp10K
+<small>Perminggu</small>
+</div>
+
+<div class="price">
+Rp30K
+<small>Perbulan</small>
+</div>
+</div>
+
+<div class="card">
+<div class="icon">🤖</div>
+<h3>Bot Notification Egg — Ride a Pet</h3>
+<p class="desc">
+Notifikasi egg untuk Ride a Pet.
+</p>
+
+<div class="price">
+Rp8K
+<small>Perminggu</small>
+</div>
+
+<div class="price">
+Rp25K
+<small>Perbulan</small>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- JOKI -->
+<section id="joki">
+<div class="title">
+<h2>🎮 JOKI</h2>
+<p>Layanan joki Roblox</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🥚</div>
+<h3>Joki Steal an Egg</h3>
+
+<p class="desc">
+✨ JOKI EGG + TREADMILL + EVENT ✨
+<br>
+SCRIPT GACOR / PREMIUM
+</p>
+
+<ul class="list">
+<li>💸 15K / 1 Hari</li>
+<li>💸 25K / 2 Hari</li>
+<li>💸 35K / 3 Hari</li>
+<li>💸 50K / 7 Hari</li>
+</ul>
+
+<hr style="border:0;border-top:1px solid #222;margin:18px 0">
+
+<h3>✨ Joki Treadmill</h3>
+
+<p class="desc">TANPA SCRIPT</p>
+
+<ul class="list">
+<li>💸 15K / 2 Hari</li>
+<li>💸 25K / 3 Hari</li>
+<li>💸 35K / 5 Hari</li>
+</ul>
+
+<div class="note">
+⚠️ SLOT TERBATAS!
+</div>
+
+</div>
+
+<div class="card">
+<div class="icon">🐾</div>
+<h3>Joki Ride a Pet</h3>
+
+<p class="desc">TANPA SCRIPT</p>
+
+<ul class="list">
+<li>Joki Luck + 20K — Rp5K</li>
+<li>Joki Luck + 50K — Rp10K</li>
+<li>Joki Luck + 80K — Rp15K</li>
+</ul>
+
+<hr style="border:0;border-top:1px solid #222;margin:18px 0">
+
+<h3>Script Gacor / Premium</h3>
+
+<p class="desc">
+JOKI AUTO AMBIL EGG
+</p>
+
+<ul class="list">
+<li>10K / 1 Hari</li>
+<li>25K / 3 Hari</li>
+<li>50K / 8 Hari</li>
+</ul>
+
+</div>
+
+</div>
+</section>
+
+<!-- JASA -->
+<section id="jasa">
+<div class="title">
+<h2>🛠️ JASA</h2>
+<p>Layanan tambahan RILL SHOP ID</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🔄</div>
+
+<h3>
+Roblox Kids/Select →
+Roblox Biasa
+</h3>
+
+<div class="price">
+Rp10K
+<small>ONLY</small>
+</div>
+
+<h3 style="margin-top:18px">
+SYARAT
+</h3>
+
+<ul class="list">
+<li>Wajib belum terverifikasi umurnya</li>
+</ul>
+
+<div class="note">
+DAPAT ON MIC<br>
+DAPAT CHAT<br>
+TANPA LOGIN
+</div>
+
+</div>
+
+<div class="card">
+<div class="icon">📢</div>
+
+<h3>Jasa Post Jualan</h3>
+
+<ul class="list">
+<li>Rp5K = 5 KALI POST</li>
+<li>Rp15K = SAMPAI LAKU</li>
+</ul>
+
+</div>
+
+<div class="card">
+<div class="icon">🤝</div>
+
+<h3>Middleman / MC</h3>
+
+<table class="fee">
+
+<tr>
+<td>1K – 20K</td>
+<td>1K Fee</td>
+</tr>
+
+<tr>
+<td>21K – 50K</td>
+<td>2K Fee</td>
+</tr>
+
+<tr>
+<td>51K – 80K</td>
+<td>3K Fee</td>
+</tr>
+
+<tr>
+<td>81K – 150K</td>
+<td>5K Fee</td>
+</tr>
+
+<tr>
+<td>151K – 200K</td>
+<td>7K Fee</td>
+</tr>
+
+<tr>
+<td>201K – 500K</td>
+<td>10K Fee</td>
+</tr>
+
+<tr>
+<td>501K – 1JT</td>
+<td>20K Fee</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+</section>
+
+<div class="cta">
+
+<h2>🔥 MAU ORDER?</h2>
+
+<p>
+Hubungi admin RILL SHOP ID untuk pembelian
+dan informasi lebih lanjut.
+</p>
+
+<a class="btn" href="#">
+HUBUNGI ADMIN
+</a>
+
+</div>
+
+</main>
+
+<footer>
+© 2026 RILL SHOP ID — Premium Roblox Store
+</footer>
+
+</body>
+</html>
