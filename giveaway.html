@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Giveaway RILL SHOP ID</title>
+<title>RILL SIGMA Giveaway - RILL SHOP ID</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#050509;color:#fff;font-family:Arial,sans-serif;min-height:100vh}
@@ -13,7 +13,7 @@ body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle 
 h1{text-align:center;margin:0 0 8px;font-size:27px}
 h1 span{color:#ff39d7;text-shadow:0 0 12px #ff00aa}
 .sub{text-align:center;color:#aaa;margin-bottom:22px}
-.info{border:1px solid #252538;border-radius:14px;padding:15px;margin-bottom:20px}
+.info{border:1px solid #252538;border-radius:14px;padding:15px;margin-bottom:20px;line-height:1.6}
 .info b{color:#00ffff}
 .channel{display:block;text-align:center;margin-top:18px;padding:12px;border:1px solid #00ffff55;border-radius:10px;color:#00ffff;text-decoration:none;font-weight:bold}
 label{display:block;margin:15px 0 7px;font-weight:bold}
@@ -27,19 +27,21 @@ button:disabled{opacity:.6}
 .error{color:#ff6666}
 .back{display:block;text-align:center;margin-top:18px;color:#aaa;text-decoration:none}
 small{color:#888}
+.footer{text-align:center;color:#555;margin-top:18px;font-size:12px}
 </style>
 </head>
 <body>
 <div class="wrap">
 <div class="card">
-<h1>🎉 <span>GIVEAWAY RILL SHOP ID</span></h1>
-<p class="sub">Ikuti challenge dan menangkan hadiah Rp50.000!</p>
+
+<h1>🎉 <span>RILL SIGMA GIVEAWAY</span></h1>
+<p class="sub">Challenge promosi dan menangkan hadiah Rp50.000!</p>
 
 <div class="info">
 <b>🏆 HADIAH: Rp50.000</b><br><br>
-🎬 Buat VT TikTok untuk mempromosikan saluran WhatsApp ini<br>
-📢 Wajib tag/mention saluran ini<br>
+🎬 Buat VT TikTok untuk mempromosikan saluran ini<br>
 👀 Target minimal <b>7.000 views</b><br>
+📢 Tag/mention saluran ini<br>
 👤 Hanya 1 pemenang
 
 <a class="channel" href="https://whatsapp.com/channel/0029VbDnL9X4SpkKHGrOKp1y" target="_blank" rel="noopener">
@@ -57,14 +59,19 @@ small{color:#888}
 <label>Link VT TikTok</label>
 <input id="link" type="url" placeholder="https://www.tiktok.com/..." required>
 
-<label>Kenapa mau ikut lomba ini?</label>
+<label>Kenapa mau ikut RILL SIGMA Giveaway?</label>
 <textarea id="reason" placeholder="Tulis alasan kamu..." required></textarea>
 
-<button id="submit" type="submit">🚀 DAFTAR GIVEAWAY</button>
+<button id="submit" type="submit">🚀 DAFTAR RILL SIGMA GIVEAWAY</button>
 <div id="msg" class="msg"></div>
 </form>
 
 <a class="back" href="/">← Kembali ke RILL SHOP ID</a>
+
+<div class="footer">
+RILL SIGMA GIVEAWAY • RILL SHOP ID
+</div>
+
 </div>
 </div>
 
@@ -93,10 +100,12 @@ body:JSON.stringify({username,link,reason})
 
 const data=await res.json();
 
-if(!res.ok||!data.success)throw new Error(data.error||"Pendaftaran gagal");
+if(!res.ok||!data.success){
+throw new Error(data.error||"Pendaftaran gagal");
+}
 
 msg.className="msg success";
-msg.innerHTML="✅ <b>Pendaftaran berhasil!</b><br>Data kamu sudah masuk ke database.";
+msg.innerHTML="✅ <b>Pendaftaran berhasil!</b><br>Data kamu sudah masuk ke database RILL SIGMA Giveaway.";
 form.reset();
 }catch(err){
 msg.className="msg error";
@@ -104,7 +113,7 @@ msg.textContent="❌ "+err.message;
 }
 
 btn.disabled=false;
-btn.textContent="🚀 DAFTAR GIVEAWAY";
+btn.textContent="🚀 DAFTAR RILL SIGMA GIVEAWAY";
 });
 </script>
 </body>
