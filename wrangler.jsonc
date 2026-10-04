@@ -1,0 +1,16 @@
+{
+  "name": "rill-shop-id-store",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "rill-giveaway-db",
+      "database_id": "5dd03eaf-352c-49a8-b88f-0721ade62591"
+    }
+  ]
+}
