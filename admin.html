@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Giveaway - RILL SHOP ID</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#050509;color:#fff;font-family:Arial,sans-serif}
+.wrap{max-width:1000px;margin:auto;padding:20px 14px}
+h1{color:#ff39d7;text-shadow:0 0 12px #ff00aa}
+.top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+button{background:#11111b;color:#fff;border:1px solid #33334a;border-radius:9px;padding:11px 15px;cursor:pointer}
+button:hover{border-color:#ff31d2}
+.status{color:#aaa;margin:10px 0 18px}
+.table{overflow-x:auto;background:#0d0d14;border:1px solid #29293a;border-radius:14px}
+table{width:100%;border-collapse:collapse;min-width:750px}
+th,td{padding:13px;border-bottom:1px solid #242436;text-align:left;vertical-align:top}
+th{color:#00eaff;background:#11111b}
+a{color:#55dfff}
+.empty{text-align:center;padding:30px;color:#888}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>🎉 ADMIN GIVEAWAY</h1>
+<div class="top">
+<button onclick="loadData()">🔄 Refresh</button>
+<button onclick="exportCSV()">📥 Export CSV</button>
+</div>
+<div id="status" class="status">Memuat data...</div>
+<div class="table">
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Username TikTok</th>
+<th>Link VT</th>
+<th>Alasan</th>
+<th>Waktu Daftar</th>
+</tr>
+</thead>
+<tbody id="list"></tbody>
+</table>
+</div>
+</div>
+
+<script>
+let participants=[];
+
+function esc(v){
+return String(v??"").replace(/[&<>"']/g,m=>({
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+}[m]));
+}
+
+function formatDate(v){
+const d=new Date(v);
+return d.toLocaleString("id-ID",{
+dateStyle:"medium",
+timeStyle:"short",
+timeZone:"Asia/Jakarta"
+})+" WIB";
+}
+
+async function loadData(){
+const status=document.getElementById("status");
+const list=document.getElementById("list");
+status.textContent="⏳ Memuat data...";
+list.innerHTML="";
+
+try{
+const res=await fetch("/api/giveaway");
+const data=await res.json();
+
+if(!res.ok||!data.success)throw new Error(data.error||"Gagal mengambil data");
+
+participants=data.participants||[];
+status.textContent="Total peserta: "+participants.length;
+
+if(!participants.length){
+list.innerHTML='<tr><td colspan="5" class="empty">Belum ada peserta.</td></tr>';
+return;
+}
+
+participants.forEach((p,i)=>{
+const tr=document.createElement("tr");
+tr.innerHTML=`
+<td>${i+1}</td>
+<td>${esc(p.username)}</td>
+<td><a href="${esc(p.link)}" target="_blank" rel="noopener">🔗 Buka VT</a></td>
+<td>${esc(p.reason)}</td>
+<td>${formatDate(p.created_at)}</td>
+`;
+list.appendChild(tr);
+});
+}catch(e){
+status.textContent="❌ "+e.message;
+}
+}
+
+function exportCSV(){
+if(!participants.length){
+alert("Belum ada peserta.");
+return;
+}
+
+const rows=[
+["No","Username TikTok","Link VT","Alasan","Waktu Daftar"],
+...participants.map((p,i)=>[
+i+1,p.username,p.link,p.reason,formatDate(p.created_at)
+])
+];
+
+const csv=rows.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(",")).join("\n");
+
+const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"});
+const a=document.createElement("a");
+a.href=URL.createObjectURL(blob);
+a.download="peserta-giveaway.csv";
+a.click();
+URL.revokeObjectURL(a.href);
+}
+
+loadData();
+</script>
+</body>
+</html>
