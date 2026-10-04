@@ -3,32 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Admin Giveaway - RILL SHOP ID</title>
+<title>Admin RILL SIGMA Giveaway - RILL SHOP ID</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#050509;color:#fff;font-family:Arial,sans-serif}
+body{margin:0;background:#050509;color:#fff;font-family:Arial,sans-serif;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 20% 10%,#ff00aa22,transparent 35%),radial-gradient(circle at 80% 80%,#00ffff18,transparent 35%);pointer-events:none}
 .wrap{max-width:1000px;margin:auto;padding:20px 14px}
-h1{color:#ff39d7;text-shadow:0 0 12px #ff00aa}
+.card{background:#0d0d14;border:1px solid #29293a;border-radius:18px;padding:20px;box-shadow:0 0 25px #ff00aa18}
+h1{text-align:center;margin:0 0 8px;color:#ff39d7;text-shadow:0 0 12px #ff00aa}
+.sub{text-align:center;color:#888;margin-bottom:22px}
 .top{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
-button{background:#11111b;color:#fff;border:1px solid #33334a;border-radius:9px;padding:11px 15px;cursor:pointer}
-button:hover{border-color:#ff31d2}
+button{background:#11111b;color:#fff;border:1px solid #33334a;border-radius:9px;padding:11px 15px;cursor:pointer;font-weight:bold}
+button:hover{border-color:#ff31d2;box-shadow:0 0 10px #ff00aa30}
 .status{color:#aaa;margin:10px 0 18px}
-.table{overflow-x:auto;background:#0d0d14;border:1px solid #29293a;border-radius:14px}
-table{width:100%;border-collapse:collapse;min-width:750px}
+.table{overflow-x:auto;background:#08080d;border:1px solid #29293a;border-radius:14px}
+table{width:100%;border-collapse:collapse;min-width:800px}
 th,td{padding:13px;border-bottom:1px solid #242436;text-align:left;vertical-align:top}
 th{color:#00eaff;background:#11111b}
-a{color:#55dfff}
+td{color:#ddd}
+a{color:#55dfff;text-decoration:none}
+a:hover{text-decoration:underline}
 .empty{text-align:center;padding:30px;color:#888}
+.footer{text-align:center;color:#555;margin-top:18px;font-size:12px}
 </style>
 </head>
 <body>
 <div class="wrap">
-<h1>🎉 ADMIN GIVEAWAY</h1>
+<div class="card">
+
+<h1>🎉 ADMIN RILL SIGMA GIVEAWAY</h1>
+<p class="sub">Panel peserta RILL SIGMA Giveaway • RILL SHOP ID</p>
+
 <div class="top">
-<button onclick="loadData()">🔄 Refresh</button>
-<button onclick="exportCSV()">📥 Export CSV</button>
+<button onclick="loadData()">🔄 REFRESH DATA</button>
+<button onclick="exportCSV()">📥 EXPORT CSV</button>
 </div>
-<div id="status" class="status">Memuat data...</div>
+
+<div id="status" class="status">⏳ Memuat data peserta...</div>
+
 <div class="table">
 <table>
 <thead>
@@ -36,12 +48,18 @@ a{color:#55dfff}
 <th>#</th>
 <th>Username TikTok</th>
 <th>Link VT</th>
-<th>Alasan</th>
+<th>Alasan Ikut</th>
 <th>Waktu Daftar</th>
 </tr>
 </thead>
 <tbody id="list"></tbody>
 </table>
+</div>
+
+<div class="footer">
+RILL SIGMA GIVEAWAY • RILL SHOP ID
+</div>
+
 </div>
 </div>
 
@@ -70,34 +88,45 @@ timeZone:"Asia/Jakarta"
 async function loadData(){
 const status=document.getElementById("status");
 const list=document.getElementById("list");
-status.textContent="⏳ Memuat data...";
+
+status.textContent="⏳ Memuat data peserta...";
 list.innerHTML="";
 
 try{
 const res=await fetch("/api/giveaway");
 const data=await res.json();
 
-if(!res.ok||!data.success)throw new Error(data.error||"Gagal mengambil data");
+if(!res.ok||!data.success){
+throw new Error(data.error||"Gagal mengambil data");
+}
 
 participants=data.participants||[];
-status.textContent="Total peserta: "+participants.length;
+
+status.textContent="👥 Total peserta RILL SIGMA: "+participants.length;
 
 if(!participants.length){
-list.innerHTML='<tr><td colspan="5" class="empty">Belum ada peserta.</td></tr>';
+list.innerHTML='<tr><td colspan="5" class="empty">Belum ada peserta RILL SIGMA Giveaway.</td></tr>';
 return;
 }
 
 participants.forEach((p,i)=>{
 const tr=document.createElement("tr");
+
 tr.innerHTML=`
 <td>${i+1}</td>
 <td>${esc(p.username)}</td>
-<td><a href="${esc(p.link)}" target="_blank" rel="noopener">🔗 Buka VT</a></td>
+<td>
+<a href="${esc(p.link)}" target="_blank" rel="noopener">
+🔗 BUKA VT
+</a>
+</td>
 <td>${esc(p.reason)}</td>
 <td>${formatDate(p.created_at)}</td>
 `;
+
 list.appendChild(tr);
 });
+
 }catch(e){
 status.textContent="❌ "+e.message;
 }
@@ -105,24 +134,35 @@ status.textContent="❌ "+e.message;
 
 function exportCSV(){
 if(!participants.length){
-alert("Belum ada peserta.");
+alert("Belum ada peserta RILL SIGMA Giveaway.");
 return;
 }
 
 const rows=[
-["No","Username TikTok","Link VT","Alasan","Waktu Daftar"],
+["No","Username TikTok","Link VT","Alasan Ikut","Waktu Daftar"],
 ...participants.map((p,i)=>[
-i+1,p.username,p.link,p.reason,formatDate(p.created_at)
+i+1,
+p.username,
+p.link,
+p.reason,
+formatDate(p.created_at)
 ])
 ];
 
-const csv=rows.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(",")).join("\n");
+const csv=rows
+.map(row=>row.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(","))
+.join("\n");
 
-const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"});
+const blob=new Blob(
+["\ufeff"+csv],
+{type:"text/csv;charset=utf-8"}
+);
+
 const a=document.createElement("a");
 a.href=URL.createObjectURL(blob);
-a.download="peserta-giveaway.csv";
+a.download="peserta-rill-sigma-giveaway.csv";
 a.click();
+
 URL.revokeObjectURL(a.href);
 }
 
